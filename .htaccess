@@ -1,0 +1,15 @@
+# Root-level .htaccess - Protects non-public directories
+# Deny all direct access to everything except the public directory
+
+<FilesMatch "\.php$">
+    Deny from all
+</FilesMatch>
+
+<DirectoryMatch "^(?!.*public)">
+    Deny from all
+</DirectoryMatch>
+
+# Prevent access to hidden files and directories
+<FilesMatch "^\.|^\.htaccess|\.sql$">
+    Deny from all
+</FilesMatch>
